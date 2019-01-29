@@ -1,6 +1,9 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebSeviceBancDelTemps.Models.Repositoris;
+using System.Data.Entity;
+
 
 namespace WebSeviceBancDelTemps.Controllers
 {
@@ -10,8 +13,8 @@ namespace WebSeviceBancDelTemps.Controllers
         [Route("api/users")]
         public HttpResponseMessage Get()
         {
-            var contactes = ContactesRepository.GetAllContactes();
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, contactes);
+            var users = UsersRepository.GetAllUsers();
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
     }

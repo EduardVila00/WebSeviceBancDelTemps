@@ -7,13 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Runtime.Serialization;
+
 namespace WebSeviceBancDelTemps.Models
 {
     using System;
     using System.Collections.Generic;
-    
+  //  [KnownType(typeof(BancDelTempsEntities))]
     public partial class User
     {
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
