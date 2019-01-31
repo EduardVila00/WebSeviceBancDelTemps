@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSeviceBancDelTemps", "WebSeviceBancDelTemps\WebSeviceBancDelTemps.csproj", "{2FB3E6E8-7AC4-4B2E-91C5-7B5AFA974FA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSBancDelTemps", "WebSeviceBancDelTemps\WSBancDelTemps.csproj", "{2FB3E6E8-7AC4-4B2E-91C5-7B5AFA974FA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -64,16 +64,6 @@
           <Property Name="is_revised" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Post_Id_Post" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id_User" />
@@ -168,7 +158,6 @@
           <EntitySet Name="Pacts" EntityType="Self.Pacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CategoryPost" Association="Self.FK_CategoryPost">
             <End Role="Categories" EntitySet="Categories" />
@@ -269,16 +258,6 @@
           <NavigationProperty Name="Pacts" Relationship="Self.FK_PactReport" FromRole="Reports" ToRole="Pacts" />
           <NavigationProperty Name="Post" Relationship="Self.FK_PostReport" FromRole="Reports" ToRole="Posts" />
         </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id_User" />
@@ -368,14 +347,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BancDelTempsEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BancDelTempsEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Bans" EntityType="Self.Ban" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Pacts" EntityType="Self.Pact" />
           <EntitySet Name="Posts" EntityType="Self.Post" />
           <EntitySet Name="Reports" EntityType="Self.Report" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_UserBan" Association="Self.FK_UserBan">
             <End Role="Users" EntitySet="Users" />
@@ -407,7 +385,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BancDelTempsModelStoreContainer" CdmEntityContainer="BancDelTempsEntities">
+        <EntityContainerMapping StorageEntityContainer="BancDelTempsModelStoreContainer" CdmEntityContainer="BancDelTempsEntities1">
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="BancDelTempsModel.Admin">
               <MappingFragment StoreEntitySet="Admins">
@@ -470,17 +448,6 @@
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="is_revised" ColumnName="is_revised" />
                 <ScalarProperty Name="Post_Id_Post" ColumnName="Post_Id_Post" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="BancDelTempsModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
