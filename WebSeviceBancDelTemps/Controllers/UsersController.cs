@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Web.Http;
 using WebSeviceBancDelTemps.Models.Repositoris;
 using System.Data.Entity;
+using WebSeviceBancDelTemps.Models;
 
 
 namespace WebSeviceBancDelTemps.Controllers
@@ -32,6 +33,22 @@ namespace WebSeviceBancDelTemps.Controllers
         public HttpResponseMessage GetFiltreNameLastNameUsers(string filtre)
         {
             var users = UsersRepository.GetFiltreNameLastNameUsers(filtre);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
+            return response;
+        }
+
+        [Route("api/user")]
+        public HttpResponseMessage PostUser([FromBody] User user)
+        {
+            var users = UsersRepository.InsertUser(user);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK,users);
+            return response;
+        }
+
+        [Route("api/user/{id}")]
+        public HttpResponseMessage UpdateUser(int id,[FromBody]User user)
+        {
+            var users = UsersRepository.UpdateUser(id, user);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
