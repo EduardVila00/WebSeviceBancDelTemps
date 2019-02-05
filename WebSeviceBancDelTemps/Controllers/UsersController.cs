@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebSeviceBancDelTemps.Models.Repositoris;
@@ -14,7 +15,7 @@ namespace WebSeviceBancDelTemps.Controllers
         [Route("api/users")]
         public HttpResponseMessage GetAllUsers()
         {
-            var users = UsersRepository.GetAllUsers();
+            List<User> users = UsersRepository.GetAllUsers();
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
