@@ -62,6 +62,13 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
 
-        //[Route("api/Delete")]
+        // DELETE: api/user/id
+        [Route("api/user/{id?}")]
+        public HttpResponseMessage Delete(int id)
+        {
+            UsersRepository.DeleteUser(id);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, "Deleted");
+            return response;
+        }
     }
 }
