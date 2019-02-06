@@ -34,18 +34,20 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             return user;
         }
 
-        public static string InsertUser(User user)
+        public static User InsertUser(User user)
         {
             try
             {
                 db.Users.Add(user);
                 db.SaveChanges();
-                return "Final"/* GetSingleUser(user.Id_User)*/;
+                var sortida = GetSingleUser(user.Id_User);
+
+                return sortida;
             }
             catch (Exception e)
             {
                // Console.WriteLine(e.ToString());
-                return e.ToString();
+                return null;
             }
         }
 

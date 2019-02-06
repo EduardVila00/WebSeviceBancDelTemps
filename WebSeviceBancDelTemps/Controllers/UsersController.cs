@@ -37,18 +37,15 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
-        // GET: api/usersName/
-        [Route("api/user/{id}")]
-        public HttpResponseMessage GetSingleUser(int id)
+        // GET: api/userS/
+        [Route("api/userSi/{id}")]
+        public HttpResponseMessage GetUser(int id)
         {
             var user = UsersRepository.GetSingleUser(id);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, user);
             return response;
         }
-
-
-
-
+        
         [Route("api/user")]
         public HttpResponseMessage PostUser([FromBody] User user)
         {
@@ -56,14 +53,15 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
-
-
-        [Route("api/user/{id}")]
+        
+        [Route("api/UpdateUser/{id}")]
         public HttpResponseMessage PutUser(int id, [FromBody]User user)
         {
             var users = UsersRepository.UpdateUser(id, user);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
+
+        //[Route("api/Delete")]
     }
 }
