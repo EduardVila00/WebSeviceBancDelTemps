@@ -29,7 +29,8 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static User GetSingleUser(int id)
         {
-            var user = db.Users.FirstOrDefault(x => x.Id_User == id);
+
+            var user = db.Users.SingleOrDefault(x => x.Id_User == id);
             return user;
         }
 

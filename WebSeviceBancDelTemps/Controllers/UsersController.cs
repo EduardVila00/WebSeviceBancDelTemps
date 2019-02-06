@@ -19,7 +19,7 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
-        
+
         // GET: api/usersEmail/
         [Route("api/usersEmail/{filtre:alpha}")]
         public HttpResponseMessage GetFiltreEmailUsers(string filtre)
@@ -28,7 +28,7 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
-        
+
         // GET: api/usersName/
         [Route("api/usersName/{filtre:alpha}")]
         public HttpResponseMessage GetFiltreNameLastNameUsers(string filtre)
@@ -37,17 +37,29 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
+        // GET: api/usersName/
+        [Route("api/user/{id}")]
+        public HttpResponseMessage GetSingleUser(int id)
+        {
+            var user = UsersRepository.GetSingleUser(id);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, user);
+            return response;
+        }
+
+
+
 
         [Route("api/user")]
         public HttpResponseMessage PostUser([FromBody] User user)
         {
             var users = UsersRepository.InsertUser(user);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK,users);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
 
+
         [Route("api/user/{id}")]
-        public HttpResponseMessage UpdateUser(int id,[FromBody]User user)
+        public HttpResponseMessage PutUser(int id, [FromBody]User user)
         {
             var users = UsersRepository.UpdateUser(id, user);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
