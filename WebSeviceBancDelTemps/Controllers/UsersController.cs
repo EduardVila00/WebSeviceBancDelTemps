@@ -54,7 +54,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         
-        [Route("api/UpdateUser/{id}")]
+        [Route("api/user/{id}")]
         public HttpResponseMessage PutUser(int id, [FromBody]User user)
         {
             var users = UsersRepository.UpdateUser(id, user);

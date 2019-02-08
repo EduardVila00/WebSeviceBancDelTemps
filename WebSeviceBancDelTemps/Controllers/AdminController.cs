@@ -9,10 +9,6 @@ namespace WebSeviceBancDelTemps.Controllers
 {
     public class AdminController : ApiController
     {
-
-
-
-
         // GET: api/users
         [Route("api/admins")]
         public HttpResponseMessage GetAllAdmins()
@@ -21,9 +17,7 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
-
-
-
+        
         [Route("api/admin")]
         public HttpResponseMessage PostUser([FromBody] Admin admin)
         {
@@ -31,8 +25,6 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
-
-
 
     }
 }
