@@ -47,12 +47,12 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }
-        // GET: api/postsName/
-        [Route("api/user/{id}")]
+        // GET: api/post/
+        [Route("api/post/{id}")]
         public HttpResponseMessage GetSinglePost(int id)
         {
-            var user = PostsRepository.GetSinglePost(id);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, user);
+            var post = PostsRepository.GetSinglePost(id);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, post);
             return response;
         }
         // GET: api/postsLocation/
@@ -72,22 +72,22 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/postsUser/
-        [Route("api/postsUser/{userId:int}")]
-        public HttpResponseMessage GetPostsByUser(int userId)
+        [Route("api/postsUser/{postId:int}")]
+        public HttpResponseMessage GetPostsByUser(int postId)
         {
-            var posts = PostsRepository.GetPostsByUser(userId);
+            var posts = PostsRepository.GetPostsByUser(postId);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }
-        [Route("api/user")]
-        public HttpResponseMessage PostPost([FromBody] Post user)
+        [Route("api/post")]
+        public HttpResponseMessage PostPost([FromBody] Post post)
         {
-            var posts = PostsRepository.InsertPost(user);
+            var posts = PostsRepository.InsertPost(post);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }
 
-        [Route("api/user/{id}")]
+        [Route("api/post/{id}")]
         public HttpResponseMessage PutPost(int id, [FromBody]Post post)
         {
             var posts = PostsRepository.UpdatePost(id, post);
@@ -95,8 +95,8 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
 
-        // DELETE: api/user/id
-        [Route("api/user/{id?}")]
+        // DELETE: api/post/id
+        [Route("api/post/{id?}")]
         public HttpResponseMessage Delete(int id)
         {
             PostsRepository.DeletePost(id);

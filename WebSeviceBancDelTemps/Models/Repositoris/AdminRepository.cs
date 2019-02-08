@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Http;
 
 namespace WebSeviceBancDelTemps.Models.Repositoris
 {
-    public class AdminRepository : ApiController
+    public class AdminRepository
     {
         private static BancDelTempsEntities1 db = new BancDelTempsEntities1();
 
