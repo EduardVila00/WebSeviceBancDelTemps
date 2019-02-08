@@ -22,6 +22,12 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             return user;
         }
 
+        public static List<Category> GetFiltreCategories(string filtre)
+        {
+            var llistaUsers = db.Categories.Where(x => x.name.Contains(filtre)).ToList();
+            return llistaUsers;
+        }
+
         public static Category InsertCategory(Category user)
         {
             try

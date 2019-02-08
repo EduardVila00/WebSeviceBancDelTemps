@@ -28,6 +28,15 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
 
+        // GET: api/usersEmail/
+        [Route("api/categories/{filtre:alpha}")]
+        public HttpResponseMessage GetFiltreCategories(string filtre)
+        {
+            var users = CategoriesRepository.GetFiltreCategories(filtre);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
+            return response;
+        }
+
 
         [Route("api/category")]
         public HttpResponseMessage PostPost([FromBody] Category category)
