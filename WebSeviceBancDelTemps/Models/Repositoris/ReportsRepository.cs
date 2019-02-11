@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 
 namespace WebSeviceBancDelTemps.Models.Repositoris
@@ -52,6 +53,13 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             }
         }
 
+        public static void DeleteReport(int id)
+        {
+            var r = db.Reports.FirstOrDefault(x => x.Id_Report == id);
+            if(r == null) return;
+            db.Reports.Remove(r);
+            db.SaveChanges();
+        }
 
 
 
