@@ -15,6 +15,12 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             var llista = db.Reports.ToList();
             return llista;
         }
+
+        public static Report GetSingleReport(int id)
+        {
+            var rep = db.Reports.FirstOrDefault(x => x.Id_Report == id);
+            return rep;
+        }
         public static List<Report> GetAllReportsDesc(string desc)
         {
             var llista = db.Reports.Where(x => x.description.Contains(desc)).ToList();

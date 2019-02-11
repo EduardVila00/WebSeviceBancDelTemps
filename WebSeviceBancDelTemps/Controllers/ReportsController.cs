@@ -17,7 +17,14 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, reports);
             return response;
         }
-
+        // GET: api/reports
+        [Route("api/reports/{id}")]
+        public HttpResponseMessage GetSingleReport(int id)
+        {
+            Report reports = ReportsRepository.GetSingleReport(id);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, reports);
+            return response;
+        }
         // GET: api/reports/desc
         [Route("api/reports/{desc:alpha}")]
         public HttpResponseMessage GetAllReportsDesc(string desc)
@@ -52,9 +59,9 @@ namespace WebSeviceBancDelTemps.Controllers
         }
         // PUT: api/report
         [Route("api/report/{id}")]
-        public HttpResponseMessage PutReport(int id,[FromBody]Report report)
+        public HttpResponseMessage PutReport(int id, [FromBody]Report report)
         {
-            Report reports = ReportsRepository.UpdateReport(id,report);
+            Report reports = ReportsRepository.UpdateReport(id, report);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, reports);
             return response;
         }
