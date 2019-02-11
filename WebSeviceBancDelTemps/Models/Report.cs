@@ -22,7 +22,7 @@ namespace WebSeviceBancDelTemps.Models
     
         public int Id_Report { get; set; }
         public string description { get; set; }
-        public string is_revised { get; set; }
+        public bool is_revised { get; set; }
         public int Post_Id_Post { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

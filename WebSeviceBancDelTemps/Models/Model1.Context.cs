@@ -13,10 +13,10 @@ namespace WebSeviceBancDelTemps.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BancDelTempsEntities1 : DbContext
+    public partial class BancDelTempsEntities : DbContext
     {
-        public BancDelTempsEntities1()
-            : base("name=BancDelTempsEntities1")
+        public BancDelTempsEntities()
+            : base("name=BancDelTempsEntities")
         {
         }
     
@@ -31,6 +31,7 @@ namespace WebSeviceBancDelTemps.Models
         public virtual DbSet<Pact> Pacts { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<Report> Reports { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

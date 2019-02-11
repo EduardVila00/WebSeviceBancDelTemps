@@ -6,7 +6,7 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 {
     public class UsersRepository
     {
-        private static BancDelTempsEntities1 db = new BancDelTempsEntities1();
+        private static BancDelTempsEntities db = new BancDelTempsEntities();
 
 
         public static List<User> GetAllUsers()
