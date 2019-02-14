@@ -19,7 +19,7 @@ namespace WebSeviceBancDelTemps.Controllers
         }
         
         [Route("api/admin")]
-        public HttpResponseMessage PostUser([FromBody] Admin admin)
+        public HttpResponseMessage PostAdmin([FromBody] Admin admin)
         {
             var users = AdminRepository.InsertAdmin(admin);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
@@ -31,6 +31,14 @@ namespace WebSeviceBancDelTemps.Controllers
         {
             AdminRepository.DeleteAdmin(id);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, "Deleted");
+            return response;
+        }
+
+        [Route("api/admin/login")]
+        public HttpResponseMessage LoginAdmin([FromBody]Admin admin)
+        {
+            var adm = AdminRepository.LoginAdmin(admin);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, adm);
             return response;
         }
 

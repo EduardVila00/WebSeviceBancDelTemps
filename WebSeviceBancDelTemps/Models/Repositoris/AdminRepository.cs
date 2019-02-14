@@ -58,5 +58,11 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             db.SaveChanges();
             
         }
+
+        public static Admin LoginAdmin(Admin admin)
+        {
+            var obj = db.Admins.FirstOrDefault(x => x.username.Equals(admin.username) && x.password == admin.password);
+            return obj;
+        }
     }
 }
