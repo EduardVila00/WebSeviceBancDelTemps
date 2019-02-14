@@ -31,5 +31,32 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
                 return e.ToString();
             }
         }
+
+        public static Admin UpdateAdmin(int id, Admin admin)
+        {
+            try
+            {
+                var a = db.Admins.FirstOrDefault(x => x.Id_Admin == id);
+                if (a == null) return null;
+                a.password = admin.password;
+                a.username = admin.username;
+                db.SaveChanges();
+                return a;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        public static void DeleteAdmin(int id)
+        {
+            var a = db.Admins.FirstOrDefault(x => x.Id_Admin == id);
+            if (a == null) return;
+            db.Admins.Remove(a);
+            db.SaveChanges();
+            
+        }
     }
 }

@@ -67,15 +67,15 @@ namespace WebSeviceBancDelTemps.Controllers
         [Route("api/postsTitle/{title:alpha}")]
         public HttpResponseMessage GetPostsByTitle(string title)
         {
-            var posts = PostsRepository.GetPostsByLocation(title);
+            var posts = PostsRepository.GetPostsByTitle(title);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }
         // GET: api/postsUser/
-        [Route("api/postsUser/{postId:int}")]
-        public HttpResponseMessage GetPostsByUser(int postId)
+        [Route("api/postsUser/{userId:int}")]
+        public HttpResponseMessage GetPostsByUser(int userId)
         {
-            var posts = PostsRepository.GetPostsByUser(postId);
+            var posts = PostsRepository.GetPostsByUser(userId);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }

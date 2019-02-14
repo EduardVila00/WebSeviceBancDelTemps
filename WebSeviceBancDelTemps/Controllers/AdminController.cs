@@ -26,5 +26,13 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
 
+        [Route("api/admin/{id?}")]
+        public HttpResponseMessage DeleteAdmin(int id)
+        {
+            AdminRepository.DeleteAdmin(id);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, "Deleted");
+            return response;
+        }
+
     }
 }
