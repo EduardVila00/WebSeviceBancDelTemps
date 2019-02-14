@@ -79,10 +79,10 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/postsLocation/
-        [Route("api/postsLocation/{location:alpha}")]
-        public HttpResponseMessage GetPactsByLocation(string location)
+        [Route("api/postsLocation/{desc:alpha}")]
+        public HttpResponseMessage GetPactsByLocation(string desc)
         {
-            var posts = PactsRepository.GetPactsByLocation(location);
+            var posts = PactsRepository.GetAllPactsPerDesc(desc);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }
@@ -90,7 +90,7 @@ namespace WebSeviceBancDelTemps.Controllers
         [Route("api/postsTitle/{title:alpha}")]
         public HttpResponseMessage GetPactsByTitle(string title)
         {
-            var posts = PactsRepository.GetPactsByTitle(title);
+            var posts = PactsRepository.GetAllPactsPerTitle(title);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }
@@ -98,7 +98,7 @@ namespace WebSeviceBancDelTemps.Controllers
         [Route("api/postsUser/{userId:int}")]
         public HttpResponseMessage GetPactsByUser(int userId)
         {
-            var posts = PactsRepository.GetPactsByUser(userId);
+            var posts = PactsRepository.GetPactsByUserId(userId);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }
@@ -122,7 +122,7 @@ namespace WebSeviceBancDelTemps.Controllers
         [Route("api/post/{id?}")]
         public HttpResponseMessage Delete(int id)
         {
-            PactsRepository.De(id);
+            PactsRepository.DeletePact(id);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, "Deleted");
             return response;
         }
