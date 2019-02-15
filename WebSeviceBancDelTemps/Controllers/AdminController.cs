@@ -35,7 +35,7 @@ namespace WebSeviceBancDelTemps.Controllers
         }
 
         [Route("api/admin/login")]
-        public HttpResponseMessage LoginAdmin([FromBody]Admin admin)
+        public HttpResponseMessage GetAdmin([FromBody]Admin admin)
         {
             var adm = AdminRepository.LoginAdmin(admin);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, adm);
