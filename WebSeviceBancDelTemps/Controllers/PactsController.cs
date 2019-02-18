@@ -10,64 +10,64 @@ namespace WebSeviceBancDelTemps.Controllers
 {
     public class PactsController : ApiController
     {
-        // GET: api/posts
-        [Route("api/posts")]
+        // GET: api/pacts
+        [Route("api/pacts")]
         public HttpResponseMessage GetAllPacts()
         {
-            List<Pact> posts = PactsRepository.GetAllPacts();
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            List<Pact> pacts = PactsRepository.GetAllPacts();
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
 
 
-        // GET: api/postsDateCreated/
-        [Route("api/postsDateCreated/{date:DateTime}")]
+        // GET: api/pactsDateCreated/
+        [Route("api/pactsDateCreated/{date:DateTime}")]
         public HttpResponseMessage GetAllPactsPerDateCreatedDespres(DateTime date)
         {
-            var posts = PactsRepository.GetAllPactsPerDateCreatedDespres(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            var pacts = PactsRepository.GetAllPactsPerDateCreatedDespres(date);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
 
-        // GET: api/postsDateFinished/
-        [Route("api/postsDateFinished/{date:DateTime}")]
+        // GET: api/pactsDateFinished/
+        [Route("api/pactsDateFinished/{date:DateTime}")]
         public HttpResponseMessage GetAllPactsPerDateCreatedAbans(DateTime date)
         {
-            var posts = PactsRepository.GetAllPactsPerDateCreatedAbans(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            var pacts = PactsRepository.GetAllPactsPerDateCreatedAbans(date);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
-        // GET: api/postsDateFinished/
-        [Route("api/postsDateFinished/{date:DateTime}")]
+        // GET: api/pactsDateFinished/
+        [Route("api/pactsDateFinished/{date:DateTime}")]
         public HttpResponseMessage GetAllPactsPerDateCreatedMateix(DateTime date)
         {
-            var posts = PactsRepository.GetAllPactsPerDateCreatedMateix(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            var pacts = PactsRepository.GetAllPactsPerDateCreatedMateix(date);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         } 
-        // GET: api/postsDateCreated/
-        [Route("api/postsDateCreated/{date:DateTime}")]
+        // GET: api/pactsDateCreated/
+        [Route("api/pactsDateCreated/{date:DateTime}")]
         public HttpResponseMessage GetAllPactsPerDateFinishedDespres(DateTime date)
         {
-            var posts = PactsRepository.GetAllPactsPerDateFinishedDespres(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            var pacts = PactsRepository.GetAllPactsPerDateFinishedDespres(date);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
 
-        // GET: api/postsDateFinished/
-        [Route("api/postsDateFinished/{date:DateTime}")]
+        // GET: api/pactsDateFinished/
+        [Route("api/pactsDateFinished/{date:DateTime}")]
         public HttpResponseMessage GetAllPactsPerDateFinishedAbans(DateTime date)
         {
-            var posts = PactsRepository.GetAllPactsPerDateFinishedAbans(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            var pacts = PactsRepository.GetAllPactsPerDateFinishedAbans(date);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
-        // GET: api/postsDateFinished/
-        [Route("api/postsDateFinished/{date:DateTime}")]
+        // GET: api/pactsDateFinished/
+        [Route("api/pactsDateFinished/{date:DateTime}")]
         public HttpResponseMessage GetAllPactsPerDateFinishedMateix(DateTime date)
         {
-            var posts = PactsRepository.GetAllPactsPerDateFinishedMateix(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            var pacts = PactsRepository.GetAllPactsPerDateFinishedMateix(date);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
         // GET: api/post/
@@ -78,43 +78,43 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, post);
             return response;
         }
-        // GET: api/postsLocation/
-        [Route("api/postsLocation/{desc:alpha}")]
+        // GET: api/pactsLocation/
+        [Route("api/pactsLocation/{desc:alpha}")]
         public HttpResponseMessage GetPactsByLocation(string desc)
         {
-            var posts = PactsRepository.GetAllPactsPerDesc(desc);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            var pacts = PactsRepository.GetAllPactsPerDesc(desc);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
-        // GET: api/postsTitle/
-        [Route("api/postsTitle/{title:alpha}")]
+        // GET: api/pactsTitle/
+        [Route("api/pactsTitle/{title:alpha}")]
         public HttpResponseMessage GetPactsByTitle(string title)
         {
-            var posts = PactsRepository.GetAllPactsPerTitle(title);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            var pacts = PactsRepository.GetAllPactsPerTitle(title);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
-        // GET: api/postsUser/
-        [Route("api/postsUser/{userId:int}")]
+        // GET: api/pactsUser/
+        [Route("api/pactsUser/{userId:int}")]
         public HttpResponseMessage GetPactsByUser(int userId)
         {
-            var posts = PactsRepository.GetPactsByUserId(userId);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            var pacts = PactsRepository.GetPactsByUserId(userId);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
         [Route("api/post")]
         public HttpResponseMessage PactPact([FromBody] Pact post)
         {
-            var posts = PactsRepository.InsertPact(post);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            var pacts = PactsRepository.InsertPact(post);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
 
         [Route("api/post/{id}")]
         public HttpResponseMessage PutPact(int id, [FromBody]Pact post)
         {
-            var posts = PactsRepository.UpdatePact(id, post);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            var pacts = PactsRepository.UpdatePact(id, post);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
 
