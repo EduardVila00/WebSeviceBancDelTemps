@@ -35,7 +35,7 @@ namespace WebSeviceBancDelTemps.Controllers
         }
         // GET: api/reports per post
         [Route("api/reports")]
-        public HttpResponseMessage GetAllReportsDesc([FromBody] Post post)
+        public HttpResponseMessage GetAllReportsPost([FromBody] Post post)
         {
             List<Report> reports = ReportsRepository.GetAllReportsPerPost(post);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, reports);
