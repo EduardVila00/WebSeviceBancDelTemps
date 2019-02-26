@@ -23,7 +23,7 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static List<Post> GetPostsByDateCreated(DateTime date)
         {
-            var llistaPosts = db.Posts.Where(x => x.date_created == date).ToList();
+            var llistaPosts = db.Posts.Where(x => x.date_created.ToString("yy-MM-dd").Equals(date.ToString("yy-MM-dd"))).ToList();
             return llistaPosts;
         }
 
