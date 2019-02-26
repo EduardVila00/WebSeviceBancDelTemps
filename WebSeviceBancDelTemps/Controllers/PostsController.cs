@@ -64,7 +64,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/postsTitle/
-        [Route("api/postsTitle/{title:alpha}")]
+        [Route("api/postsTitle/{title}")]
         public HttpResponseMessage GetPostsByTitle(string title)
         {
             var posts = PostsRepository.GetPostsByTitle(title);
@@ -72,10 +72,10 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/postsUser/
-        [Route("api/postsUser/{userId:int}")]
-        public HttpResponseMessage GetPostsByUser(int userId)
+        [Route("api/postsUser/{filtre}")]
+        public HttpResponseMessage GetPostsByUser(string filtre)
         {
-            var posts = PostsRepository.GetPostsByUser(userId);
+            var posts = PostsRepository.GetPostsByUser(filtre);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }

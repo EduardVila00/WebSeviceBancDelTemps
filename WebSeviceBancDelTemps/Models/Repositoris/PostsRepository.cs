@@ -45,9 +45,9 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             return llistaPosts;
         }
 
-        public static List<Post> GetPostsByUser(int userId)
+        public static List<Post> GetPostsByUser(string filtre)
         {
-            var llistaPosts = db.Posts.Where(x => x.UserId_User == userId).ToList();
+            var llistaPosts = db.Posts.Where(x => x.User.name.Contains(filtre)).ToList();
             return llistaPosts;
         }
 
