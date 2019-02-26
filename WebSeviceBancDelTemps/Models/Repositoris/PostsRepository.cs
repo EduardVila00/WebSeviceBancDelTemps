@@ -35,13 +35,13 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static List<Post> GetPostsByLocation(string location)
         {
-            var llistaPosts = db.Posts.Where(x => x.location == location).ToList();
+            var llistaPosts = db.Posts.Where(x => x.location.Contains(location)).ToList();
             return llistaPosts;
         }
 
         public static List<Post> GetPostsByTitle(string title)
         {
-            var llistaPosts = db.Posts.Where(x => x.title == title).ToList();
+            var llistaPosts = db.Posts.Where(x => x.title.Contains(title)).ToList();
             return llistaPosts;
         }
 
