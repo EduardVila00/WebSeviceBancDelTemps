@@ -31,8 +31,8 @@ namespace WebSeviceBancDelTemps.Controllers
         }
 
         // GET: api/postsDateCreated/
-        [Route("api/postsDateCreated/{date:DateTime}")]
-        public HttpResponseMessage GetPostsByDateCreated(DateTime date)
+        [Route("api/postsDateCreated/{date}")]
+        public HttpResponseMessage GetPostsByDateCreated(string date)
         {
             var posts = PostsRepository.GetPostsByDateCreated(date);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
