@@ -79,7 +79,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/pactsLocation/
-        [Route("api/pactsLocation/{desc:alpha}")]
+        [Route("api/pactsLocation/{desc}")]
         public HttpResponseMessage GetPactsByLocation(string desc)
         {
             var pacts = PactsRepository.GetAllPactsPerDesc(desc);
@@ -87,7 +87,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/pactsTitle/
-        [Route("api/pactsTitle/{title:alpha}")]
+        [Route("api/pactsTitle/{title}")]
         public HttpResponseMessage GetPactsByTitle(string title)
         {
             var pacts = PactsRepository.GetAllPactsPerTitle(title);

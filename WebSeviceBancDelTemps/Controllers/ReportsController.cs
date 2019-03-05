@@ -18,7 +18,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/reports
-        [Route("api/reports/{id}")]
+        [Route("api/report/{id}")]
         public HttpResponseMessage GetSingleReport(int id)
         {
             Report reports = ReportsRepository.GetSingleReport(id);
@@ -26,7 +26,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/reports/desc
-        [Route("api/reports/{desc:alpha}")]
+        [Route("api/reportsDesc/{desc}")]
         public HttpResponseMessage GetAllReportsDesc(string desc)
         {
             List<Report> reports = ReportsRepository.GetAllReportsDesc(desc);
@@ -50,7 +50,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/reports per estat
-        [Route("api/reports/{revised:bool}")]
+        [Route("api/reportsRevised/{revised:bool}")]
         public HttpResponseMessage GetAllReports(bool revised)
         {
             List<Report> reports = ReportsRepository.GetAllReportsPerRevised(revised);
