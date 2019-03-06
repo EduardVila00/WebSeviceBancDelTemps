@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace WebSeviceBancDelTemps.Models.Repositoris
@@ -23,8 +24,10 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static List<Post> GetPostsByDateCreated(string date)
         {
-            var data = DateTime.Parse(date);
-            var llistaPosts = db.Posts.Where(x => (x.date_created) == data).ToList();
+           // var data = date.ToString("yyyy-M-dd");
+            var test = db.Posts.ToList();
+            
+            var llistaPosts = db.Posts.Where(x => (x.date_created.ToString("yyyy-M-dd")) == date).ToList();
             return llistaPosts;
         }
 
