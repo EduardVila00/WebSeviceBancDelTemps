@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebSeviceBancDelTemps.Models
+namespace WebSeviceBancDelTemps.Models.Repositoris
 {
     using System;
     using System.Collections.Generic;
@@ -15,8 +15,8 @@ namespace WebSeviceBancDelTemps.Models
     public partial class Pact
     {
         public int Id_Pact { get; set; }
-        public Nullable<System.DateTime> date_created { get; set; }
-        public Nullable<System.DateTime> date_finished { get; set; }
+        public string date_created { get; set; }
+        public string date_finished { get; set; }
         public string description { get; set; }
         public string title { get; set; }
         public int Posts_Id_Post { get; set; }

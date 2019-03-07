@@ -20,56 +20,56 @@ namespace WebSeviceBancDelTemps.Controllers
         }
 
 
-        // GET: api/pactsDateCreated/
-        [Route("api/pactsDateCreated/{date:DateTime}")]
-        public HttpResponseMessage GetAllPactsPerDateCreatedDespres(DateTime date)
-        {
-            var pacts = PactsRepository.GetAllPactsPerDateCreatedDespres(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
-            return response;
-        }
+        //// GET: api/pactsDateCreated/
+        //[Route("api/pactsDateCreated/{date:DateTime}")]
+        //public HttpResponseMessage GetAllPactsPerDateCreatedDespres(DateTime date)
+        //{
+        //    var pacts = PactsRepository.GetAllPactsPerDateCreatedDespres(date);
+        //    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
+        //    return response;
+        //}
 
-        // GET: api/pactsDateFinished/
-        [Route("api/pactsDateFinished/{date:DateTime}")]
-        public HttpResponseMessage GetAllPactsPerDateCreatedAbans(DateTime date)
-        {
-            var pacts = PactsRepository.GetAllPactsPerDateCreatedAbans(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
-            return response;
-        }
-        // GET: api/pactsDateFinished/
-        [Route("api/pactsDateFinished/{date:DateTime}")]
-        public HttpResponseMessage GetAllPactsPerDateCreatedMateix(DateTime date)
-        {
-            var pacts = PactsRepository.GetAllPactsPerDateCreatedMateix(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
-            return response;
-        } 
-        // GET: api/pactsDateCreated/
-        [Route("api/pactsDateCreated/{date:DateTime}")]
-        public HttpResponseMessage GetAllPactsPerDateFinishedDespres(DateTime date)
-        {
-            var pacts = PactsRepository.GetAllPactsPerDateFinishedDespres(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
-            return response;
-        }
+        //// GET: api/pactsDateFinished/
+        //[Route("api/pactsDateFinished/{date:DateTime}")]
+        //public HttpResponseMessage GetAllPactsPerDateCreatedAbans(DateTime date)
+        //{
+        //    var pacts = PactsRepository.GetAllPactsPerDateCreatedAbans(date);
+        //    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
+        //    return response;
+        //}
+        //// GET: api/pactsDateFinished/
+        //[Route("api/pactsDateFinished/{date:DateTime}")]
+        //public HttpResponseMessage GetAllPactsPerDateCreatedMateix(DateTime date)
+        //{
+        //    var pacts = PactsRepository.GetAllPactsPerDateCreatedMateix(date);
+        //    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
+        //    return response;
+        //} 
+        //// GET: api/pactsDateCreated/
+        //[Route("api/pactsDateCreated/{date:DateTime}")]
+        //public HttpResponseMessage GetAllPactsPerDateFinishedDespres(DateTime date)
+        //{
+        //    var pacts = PactsRepository.GetAllPactsPerDateFinishedDespres(date);
+        //    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
+        //    return response;
+        //}
 
-        // GET: api/pactsDateFinished/
-        [Route("api/pactsDateFinished/{date:DateTime}")]
-        public HttpResponseMessage GetAllPactsPerDateFinishedAbans(DateTime date)
-        {
-            var pacts = PactsRepository.GetAllPactsPerDateFinishedAbans(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
-            return response;
-        }
-        // GET: api/pactsDateFinished/
-        [Route("api/pactsDateFinished/{date:DateTime}")]
-        public HttpResponseMessage GetAllPactsPerDateFinishedMateix(DateTime date)
-        {
-            var pacts = PactsRepository.GetAllPactsPerDateFinishedMateix(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
-            return response;
-        }
+        //// GET: api/pactsDateFinished/
+        //[Route("api/pactsDateFinished/{date:DateTime}")]
+        //public HttpResponseMessage GetAllPactsPerDateFinishedAbans(DateTime date)
+        //{
+        //    var pacts = PactsRepository.GetAllPactsPerDateFinishedAbans(date);
+        //    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
+        //    return response;
+        //}
+        //// GET: api/pactsDateFinished/
+        //[Route("api/pactsDateFinished/{date:DateTime}")]
+        //public HttpResponseMessage GetAllPactsPerDateFinishedMateix(DateTime date)
+        //{
+        //    var pacts = PactsRepository.GetAllPactsPerDateFinishedMateix(date);
+        //    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
+        //    return response;
+        //}
         // GET: api/post/
         [Route("api/post/{id}")]
         public HttpResponseMessage GetSinglePact(int id)

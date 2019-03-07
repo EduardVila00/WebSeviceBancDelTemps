@@ -40,13 +40,13 @@ namespace WebSeviceBancDelTemps.Controllers
         }
 
         // GET: api/postsDateFinished/
-        [Route("api/postsDateFinished/{date:DateTime}")]
-        public HttpResponseMessage GetPostsByDateFinished(DateTime date)
-        {
-            var posts = PostsRepository.GetPostsByDateFinished(date);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
-            return response;
-        }
+        //[Route("api/postsDateFinished/{date:DateTime}")]
+        //public HttpResponseMessage GetPostsByDateFinished(DateTime date)
+        //{
+        //    var posts = PostsRepository.GetPostsByDateFinished(date);
+        //    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+        //    return response;
+        //}
         // GET: api/post/
         [Route("api/post/{id}")]
         public HttpResponseMessage GetSinglePost(int id)

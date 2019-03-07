@@ -34,7 +34,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/reports per post
-        [Route("api/reports")]
+        [Route("api/reportsPost")]
         public HttpResponseMessage GetAllReportsPost([FromBody] Post post)
         {
             List<Report> reports = ReportsRepository.GetAllReportsPerPost(post);
@@ -42,7 +42,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/reports per user
-        [Route("api/reports")]
+        [Route("api/reportsUser")]
         public HttpResponseMessage GetAllReportsUser([FromBody] User user)
         {
             List<Report> reports = ReportsRepository.GetAllReportsPerUser(user);

@@ -32,41 +32,41 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             return llista;
         }
 
-        public static List<Pact> GetAllPactsPerDateCreatedMateix(DateTime date)
-        {
-            var llista = db.Pacts.Where(x => x.date_created == date).ToList();
-            return llista;
-        }
+        //public static List<Pact> GetAllPactsPerDateCreatedMateix(DateTime date)
+        //{
+        //    var llista = db.Pacts.Where(x => x.date_created == date).ToList();
+        //    return llista;
+        //}
 
-        public static List<Pact> GetAllPactsPerDateCreatedAbans(DateTime date)
-        {
-            var llista = db.Pacts.Where(x => x.date_created < date).ToList();
-            return llista;
-        }
+        //public static List<Pact> GetAllPactsPerDateCreatedAbans(DateTime date)
+        //{
+        //    var llista = db.Pacts.Where(x => x.date_created < date).ToList();
+        //    return llista;
+        //}
 
-        public static List<Pact> GetAllPactsPerDateCreatedDespres(DateTime date)
-        {
-            var llista = db.Pacts.Where(x => x.date_created > date).ToList();
-            return llista;
-        }
+        //public static List<Pact> GetAllPactsPerDateCreatedDespres(DateTime date)
+        //{
+        //    var llista = db.Pacts.Where(x => x.date_created > date).ToList();
+        //    return llista;
+        //}
 
-        public static List<Pact> GetAllPactsPerDateFinishedMateix(DateTime date)
-        {
-            var llista = db.Pacts.Where(x => x.date_finished == date).ToList();
-            return llista;
-        }
+        //public static List<Pact> GetAllPactsPerDateFinishedMateix(DateTime date)
+        //{
+        //    var llista = db.Pacts.Where(x => x.date_finished == date).ToList();
+        //    return llista;
+        //}
 
-        public static List<Pact> GetAllPactsPerDateFinishedAbans(DateTime date)
-        {
-            var llista = db.Pacts.Where(x => x.date_finished < date).ToList();
-            return llista;
-        }
+        //public static List<Pact> GetAllPactsPerDateFinishedAbans(DateTime date)
+        //{
+        //    var llista = db.Pacts.Where(x => x.date_finished < date).ToList();
+        //    return llista;
+        //}
 
-        public static List<Pact> GetAllPactsPerDateFinishedDespres(DateTime date)
-        {
-            var llista = db.Pacts.Where(x => x.date_finished > date).ToList();
-            return llista;
-        }
+        //public static List<Pact> GetAllPactsPerDateFinishedDespres(DateTime date)
+        //{
+        //    var llista = db.Pacts.Where(x => x.date_finished > date).ToList();
+        //    return llista;
+        //}
         public static List<Pact> GetPactsByUserId(int id)
         {
             var llista = db.Pacts.Where(x => x.Post.User.Id_User == id).ToList();

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebSeviceBancDelTemps.Models
+namespace WebSeviceBancDelTemps.Models.Repositoris
 {
     using System;
     using System.Collections.Generic;
@@ -15,8 +15,8 @@ namespace WebSeviceBancDelTemps.Models
     public partial class Ban
     {
         public int Id_Ban { get; set; }
-        public System.DateTime ban_date { get; set; }
-        public Nullable<System.DateTime> ban_finish_date { get; set; }
+        public string ban_date { get; set; }
+        public string ban_finish_date { get; set; }
         public int UserId_User { get; set; }
     
         public virtual User User { get; set; }

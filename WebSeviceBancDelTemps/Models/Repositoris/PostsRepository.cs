@@ -24,18 +24,18 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static List<Post> GetPostsByDateCreated(string date)
         {
-           // var data = date.ToString("yyyy-M-dd");
+            // var data = date.ToString("yyyy-M-dd");
             var test = db.Posts.ToList();
-            
-            var llistaPosts = db.Posts.Where(x => (x.date_created.ToString("yyyy-M-dd")) == date).ToList();
+
+            var llistaPosts = db.Posts.Where(x => (x.date_created) == date).ToList();
             return llistaPosts;
         }
 
-        public static List<Post> GetPostsByDateFinished(DateTime date)
-        {
-            var llistaPosts = db.Posts.Where(x => x.date_finished == date).ToList();
-            return llistaPosts;
-        }
+        //public static List<Post> GetPostsByDateFinished(DateTime date)
+        //{
+        //    var llistaPosts = db.Posts.Where(x => x.date_finished == date).ToList();
+        //    return llistaPosts;
+        //}
 
         public static List<Post> GetPostsByLocation(string location)
         {
@@ -72,8 +72,8 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             }
             catch (Exception e)
             {
-               Console.WriteLine(e.ToString());
-               return null;
+                Console.WriteLine(e.ToString());
+                return null;
             }
         }
 

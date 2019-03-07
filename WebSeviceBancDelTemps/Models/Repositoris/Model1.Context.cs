@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebSeviceBancDelTemps.Models
+namespace WebSeviceBancDelTemps.Models.Repositoris
 {
     using System;
     using System.Data.Entity;
@@ -31,7 +31,6 @@ namespace WebSeviceBancDelTemps.Models
         public virtual DbSet<Pact> Pacts { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<Report> Reports { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

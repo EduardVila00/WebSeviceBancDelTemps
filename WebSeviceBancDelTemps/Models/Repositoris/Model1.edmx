@@ -18,8 +18,8 @@
             <PropertyRef Name="Id_Ban" />
           </Key>
           <Property Name="Id_Ban" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ban_date" Type="datetime" Nullable="false" />
-          <Property Name="ban_finish_date" Type="datetime" />
+          <Property Name="ban_date" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ban_finish_date" Type="nvarchar(max)" />
           <Property Name="UserId_User" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Categories">
@@ -35,8 +35,8 @@
             <PropertyRef Name="Id_Pact" />
           </Key>
           <Property Name="Id_Pact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="date_created" Type="datetime" />
-          <Property Name="date_finished" Type="datetime" />
+          <Property Name="date_created" Type="nvarchar(max)" />
+          <Property Name="date_finished" Type="nvarchar(max)" />
           <Property Name="description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Posts_Id_Post" Type="int" Nullable="false" />
@@ -47,8 +47,8 @@
             <PropertyRef Name="Id_Post" />
           </Key>
           <Property Name="Id_Post" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="date_created" Type="datetime" Nullable="false" />
-          <Property Name="date_finished" Type="datetime" />
+          <Property Name="date_created" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="date_finished" Type="nvarchar(max)" />
           <Property Name="description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="location" Type="nvarchar(max)" Nullable="false" />
           <Property Name="title" Type="nvarchar(max)" Nullable="false" />
@@ -64,16 +64,6 @@
           <Property Name="is_revised" Type="bit" Nullable="false" />
           <Property Name="Post_Id_Post" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id_User" />
@@ -82,10 +72,10 @@
           <Property Name="name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="last_name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="email" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="register_date" Type="datetime" Nullable="false" />
+          <Property Name="register_date" Type="nvarchar(max)" Nullable="false" />
           <Property Name="time_hours" Type="float" Nullable="false" />
           <Property Name="password" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="date_of_birth" Type="datetime" Nullable="false" />
+          <Property Name="date_of_birth" Type="nvarchar(max)" Nullable="false" />
           <Property Name="gender" Type="nvarchar(max)" Nullable="false" />
           <Property Name="picture_path" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
@@ -168,7 +158,6 @@
           <EntitySet Name="Pacts" EntityType="Self.Pacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CategoryPost" Association="Self.FK_CategoryPost">
             <End Role="Categories" EntitySet="Categories" />
@@ -213,8 +202,8 @@
             <PropertyRef Name="Id_Ban" />
           </Key>
           <Property Name="Id_Ban" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ban_date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ban_finish_date" Type="DateTime" Precision="3" />
+          <Property Name="ban_date" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ban_finish_date" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UserId_User" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_UserBan" FromRole="Bans" ToRole="Users" />
         </EntityType>
@@ -232,8 +221,8 @@
             <PropertyRef Name="Id_Pact" />
           </Key>
           <Property Name="Id_Pact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="date_created" Type="DateTime" Precision="3" />
-          <Property Name="date_finished" Type="DateTime" Precision="3" />
+          <Property Name="date_created" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_finished" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Posts_Id_Post" Type="Int32" Nullable="false" />
@@ -246,8 +235,8 @@
             <PropertyRef Name="Id_Post" />
           </Key>
           <Property Name="Id_Post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="date_created" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="date_finished" Type="DateTime" Precision="3" />
+          <Property Name="date_created" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_finished" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -269,16 +258,6 @@
           <NavigationProperty Name="Pacts" Relationship="Self.FK_PactReport" FromRole="Reports" ToRole="Pacts" />
           <NavigationProperty Name="Post" Relationship="Self.FK_PostReport" FromRole="Reports" ToRole="Posts" />
         </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id_User" />
@@ -287,10 +266,10 @@
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="last_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="register_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="register_date" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="time_hours" Type="Double" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="date_of_birth" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="date_of_birth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="picture_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Bans" Relationship="Self.FK_UserBan" FromRole="Users" ToRole="Bans" />
@@ -375,7 +354,6 @@
           <EntitySet Name="Pacts" EntityType="Self.Pact" />
           <EntitySet Name="Posts" EntityType="Self.Post" />
           <EntitySet Name="Reports" EntityType="Self.Report" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_UserBan" Association="Self.FK_UserBan">
             <End Role="Users" EntitySet="Users" />
@@ -470,17 +448,6 @@
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="is_revised" ColumnName="is_revised" />
                 <ScalarProperty Name="Post_Id_Post" ColumnName="Post_Id_Post" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="BancDelTempsModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

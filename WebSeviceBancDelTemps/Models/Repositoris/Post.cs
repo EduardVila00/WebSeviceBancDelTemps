@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebSeviceBancDelTemps.Models
+namespace WebSeviceBancDelTemps.Models.Repositoris
 {
     using System;
     using System.Collections.Generic;
@@ -22,8 +22,8 @@ namespace WebSeviceBancDelTemps.Models
         }
     
         public int Id_Post { get; set; }
-        public System.DateTime date_created { get; set; }
-        public Nullable<System.DateTime> date_finished { get; set; }
+        public string date_created { get; set; }
+        public string date_finished { get; set; }
         public string description { get; set; }
         public string location { get; set; }
         public string title { get; set; }
