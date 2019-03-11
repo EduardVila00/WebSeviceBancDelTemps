@@ -32,11 +32,11 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             return llista;
         }
 
-        //public static List<Pact> GetAllPactsPerDateCreatedMateix(DateTime date)
-        //{
-        //    var llista = db.Pacts.Where(x => x.date_created == date).ToList();
-        //    return llista;
-        //}
+        public static List<Pact> GetAllPactsPerDateCreatedMateix(string date)
+        {
+            var llista = db.Pacts.Where(x => x.date_created == date).ToList();
+            return llista;
+        }
 
         //public static List<Pact> GetAllPactsPerDateCreatedAbans(DateTime date)
         //{
@@ -50,11 +50,11 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
         //    return llista;
         //}
 
-        //public static List<Pact> GetAllPactsPerDateFinishedMateix(DateTime date)
-        //{
-        //    var llista = db.Pacts.Where(x => x.date_finished == date).ToList();
-        //    return llista;
-        //}
+        public static List<Pact> GetAllPactsPerDateFinishedMateix(string date)
+        {
+            var llista = db.Pacts.Where(x => x.date_finished == date).ToList();
+            return llista;
+        }
 
         //public static List<Pact> GetAllPactsPerDateFinishedAbans(DateTime date)
         //{

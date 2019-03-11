@@ -21,7 +21,7 @@ namespace WebSeviceBancDelTemps.Controllers
         }
 
         // GET: api/usersEmail/
-        [Route("api/usersEmail/{filtre:alpha}")]
+        [Route("api/usersEmail/{filtre}")]
         public HttpResponseMessage GetFiltreEmailUsers(string filtre)
         {
             var users = UsersRepository.GetFiltreEmailUsers(filtre);
@@ -30,7 +30,7 @@ namespace WebSeviceBancDelTemps.Controllers
         }
 
         // GET: api/usersName/
-        [Route("api/usersName/{filtre:alpha}")]
+        [Route("api/usersName/{filtre}")]
         public HttpResponseMessage GetFiltreNameLastNameUsers(string filtre)
         {
             var users = UsersRepository.GetFiltreNameLastNameUsers(filtre);

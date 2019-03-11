@@ -24,18 +24,16 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static List<Post> GetPostsByDateCreated(string date)
         {
-            // var data = date.ToString("yyyy-M-dd");
-            var test = db.Posts.ToList();
 
             var llistaPosts = db.Posts.Where(x => (x.date_created) == date).ToList();
             return llistaPosts;
         }
 
-        //public static List<Post> GetPostsByDateFinished(DateTime date)
-        //{
-        //    var llistaPosts = db.Posts.Where(x => x.date_finished == date).ToList();
-        //    return llistaPosts;
-        //}
+        public static List<Post> GetPostsByDateFinished(string date)
+        {
+            var llistaPosts = db.Posts.Where(x => x.date_finished == date).ToList();
+            return llistaPosts;
+        }
 
         public static List<Post> GetPostsByLocation(string location)
         {

@@ -71,7 +71,7 @@ namespace WebSeviceBancDelTemps.Controllers
         //    return response;
         //}
         // GET: api/post/
-        [Route("api/post/{id}")]
+        [Route("api/pact/{id}")]
         public HttpResponseMessage GetSinglePact(int id)
         {
             var post = PactsRepository.GetSinglePact(id);
@@ -79,7 +79,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/pactsLocation/
-        [Route("api/pactsLocation/{desc}")]
+        [Route("api/pactsDesc/{desc}")]
         public HttpResponseMessage GetPactsByLocation(string desc)
         {
             var pacts = PactsRepository.GetAllPactsPerDesc(desc);
@@ -94,6 +94,25 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
+
+        // GET: api/postsDateCreated/
+        [Route("api/pactsDateCreated/{date}")]
+        public HttpResponseMessage GetPostsByDateCreated(string date)
+        {
+            var posts = PactsRepository.GetAllPactsPerDateCreatedMateix(date);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            return response;
+        }
+        // GET: api/postsDateCreated/
+        [Route("api/pactsDateFinished/{date}")]
+        public HttpResponseMessage GetPostsByDateFinished(string date)
+        {
+            var posts = PactsRepository.GetAllPactsPerDateFinishedMateix(date);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            return response;
+        }
+
+
         // GET: api/pactsUser/
         [Route("api/pactsUser/{userId:int}")]
         public HttpResponseMessage GetPactsByUser(int userId)

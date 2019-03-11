@@ -29,7 +29,7 @@ namespace WebSeviceBancDelTemps.Controllers
         }
 
         // GET: api/usersEmail/
-        [Route("api/categories/{filtre:alpha}")]
+        [Route("api/categories/{filtre}")]
         public HttpResponseMessage GetFiltreCategories(string filtre)
         {
             var users = CategoriesRepository.GetFiltreCategories(filtre);
