@@ -40,7 +40,6 @@
           <Property Name="description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Posts_Id_Post" Type="int" Nullable="false" />
-          <Property Name="Reports_Id_Report" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Posts">
           <Key>
@@ -103,18 +102,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PactReport">
-          <End Role="Reports" Type="Self.Reports" Multiplicity="1" />
-          <End Role="Pacts" Type="Self.Pacts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Reports">
-              <PropertyRef Name="Id_Report" />
-            </Principal>
-            <Dependent Role="Pacts">
-              <PropertyRef Name="Reports_Id_Report" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PostReport">
           <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
           <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
@@ -165,10 +152,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_PactPost" Association="Self.FK_PactPost">
             <End Role="Posts" EntitySet="Posts" />
-            <End Role="Pacts" EntitySet="Pacts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PactReport" Association="Self.FK_PactReport">
-            <End Role="Reports" EntitySet="Reports" />
             <End Role="Pacts" EntitySet="Pacts" />
           </AssociationSet>
           <AssociationSet Name="FK_PostReport" Association="Self.FK_PostReport">
@@ -226,9 +209,7 @@
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Posts_Id_Post" Type="Int32" Nullable="false" />
-          <Property Name="Reports_Id_Report" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Post" Relationship="Self.FK_PactPost" FromRole="Pacts" ToRole="Posts" />
-          <NavigationProperty Name="Report" Relationship="Self.FK_PactReport" FromRole="Pacts" ToRole="Reports" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -255,7 +236,6 @@
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="is_revised" Type="Boolean" Nullable="false" />
           <Property Name="Post_Id_Post" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Pacts" Relationship="Self.FK_PactReport" FromRole="Reports" ToRole="Pacts" />
           <NavigationProperty Name="Post" Relationship="Self.FK_PostReport" FromRole="Reports" ToRole="Posts" />
         </EntityType>
         <EntityType Name="User">
@@ -311,18 +291,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PactReport">
-          <End Role="Reports" Type="Self.Report" Multiplicity="1" />
-          <End Role="Pacts" Type="Self.Pact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Reports">
-              <PropertyRef Name="Id_Report" />
-            </Principal>
-            <Dependent Role="Pacts">
-              <PropertyRef Name="Reports_Id_Report" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PostReport">
           <End Role="Posts" Type="Self.Post" Multiplicity="1" />
           <End Role="Reports" Type="Self.Report" Multiplicity="*" />
@@ -365,10 +333,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_PactPost" Association="Self.FK_PactPost">
             <End Role="Posts" EntitySet="Posts" />
-            <End Role="Pacts" EntitySet="Pacts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PactReport" Association="Self.FK_PactReport">
-            <End Role="Reports" EntitySet="Reports" />
             <End Role="Pacts" EntitySet="Pacts" />
           </AssociationSet>
           <AssociationSet Name="FK_PostReport" Association="Self.FK_PostReport">
@@ -423,7 +387,6 @@
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="Posts_Id_Post" ColumnName="Posts_Id_Post" />
-                <ScalarProperty Name="Reports_Id_Report" ColumnName="Reports_Id_Report" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
