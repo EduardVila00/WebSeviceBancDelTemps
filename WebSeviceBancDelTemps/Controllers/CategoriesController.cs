@@ -17,6 +17,14 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, categories);
             return response;
         }
+        // GET: api/users
+        [Route("api/categoriesString")]
+        public HttpResponseMessage GetCategoriesString()
+        {
+            List<string> categories = CategoriesRepository.GetCategoriesNames();
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, categories);
+            return response;
+        }
 
 
         // GET: api/category/
@@ -24,6 +32,14 @@ namespace WebSeviceBancDelTemps.Controllers
         public HttpResponseMessage GetSingleCategory(int id)
         {
             var category = CategoriesRepository.GetSingleCategory(id);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, category);
+            return response;
+        }
+        // GET: api/category/
+        [Route("api/categoryId/{nom}")]
+        public HttpResponseMessage GetIdCategoryPerString(string nom)
+        {
+            var category = CategoriesRepository.GetIdCategoryPerString(nom);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, category);
             return response;
         }

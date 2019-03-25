@@ -87,8 +87,8 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
 
-        [Route("api/post/{id}")]
-        public HttpResponseMessage PutPost(int id, [FromBody]Post post)
+        [Route("api/updatePost/{id}")]
+        public HttpResponseMessage Put(int id, [FromBody]Post post)
         {
             var posts = PostsRepository.UpdatePost(id, post);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
@@ -96,12 +96,11 @@ namespace WebSeviceBancDelTemps.Controllers
         }
 
         // DELETE: api/post/id
-        [Route("api/post/{id?}")]
-        public HttpResponseMessage Delete(int id)
+        [Route("api/deletePost/{id?}")]
+        public void Delete(int id)
         {
             PostsRepository.DeletePost(id);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, "Deleted");
-            return response;
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

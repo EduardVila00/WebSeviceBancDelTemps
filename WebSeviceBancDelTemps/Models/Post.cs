@@ -7,34 +7,35 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebSeviceBancDelTemps.Models.Repositoris
+namespace WebSeviceBancDelTemps.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Post
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Post()
         {
-            this.Bans = new HashSet<Ban>();
-            this.Posts = new HashSet<Post>();
+            this.Pacts = new HashSet<Pact>();
+            this.Reports = new HashSet<Report>();
         }
     
-        public int Id_User { get; set; }
-        public string name { get; set; }
-        public string last_name { get; set; }
-        public string email { get; set; }
-        public string register_date { get; set; }
-        public double time_hours { get; set; }
-        public string password { get; set; }
-        public string date_of_birth { get; set; }
-        public string gender { get; set; }
-        public string picture_path { get; set; }
+        public int Id_Post { get; set; }
+        public string date_created { get; set; }
+        public string date_finished { get; set; }
+        public string description { get; set; }
+        public string location { get; set; }
+        public string title { get; set; }
+        public int UserId_User { get; set; }
+        public int Category_Id_Category { get; set; }
+        public bool actiu { get; set; }
     
+        public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ban> Bans { get; set; }
+        public virtual ICollection<Pact> Pacts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Report> Reports { get; set; }
+        public virtual User User { get; set; }
     }
 }

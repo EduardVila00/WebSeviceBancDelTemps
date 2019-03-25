@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebSeviceBancDelTemps.Models.Repositoris
+namespace WebSeviceBancDelTemps.Models
 {
     using System;
     using System.Data.Entity;

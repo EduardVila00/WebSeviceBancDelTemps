@@ -7,18 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebSeviceBancDelTemps.Models.Repositoris
+namespace WebSeviceBancDelTemps.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Ban
+    public partial class Report
     {
-        public int Id_Ban { get; set; }
-        public string ban_date { get; set; }
-        public string ban_finish_date { get; set; }
-        public int UserId_User { get; set; }
+        public int Id_Report { get; set; }
+        public string description { get; set; }
+        public bool is_revised { get; set; }
+        public int Post_Id_Post { get; set; }
+        public int Id_Reporter { get; set; }
+        public int Id_Reported { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual Post Post { get; set; }
     }
 }

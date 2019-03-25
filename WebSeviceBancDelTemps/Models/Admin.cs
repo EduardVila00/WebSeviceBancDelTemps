@@ -7,18 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebSeviceBancDelTemps.Models.Repositoris
+namespace WebSeviceBancDelTemps.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Report
+    public partial class Admin
     {
-        public int Id_Report { get; set; }
-        public string description { get; set; }
-        public bool is_revised { get; set; }
-        public int Post_Id_Post { get; set; }
-    
-        public virtual Post Post { get; set; }
+        public int Id_Admin { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
     }
 }

@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b11dd237591c41d2aff9d4d82e211060" Name="Diagram1">
+      <Diagram DiagramId="e35082604daa4c19b4e8002e0e2feb19" Name="Diagram1">
         <EntityTypeShape EntityType="BancDelTempsModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BancDelTempsModel.Ban" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BancDelTempsModel.Category" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancDelTempsModel.Ban" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancDelTempsModel.Category" Width="1.5" PointX="3.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BancDelTempsModel.Pact" Width="1.5" PointX="8.25" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BancDelTempsModel.Post" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BancDelTempsModel.Report" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BancDelTempsModel.User" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancDelTempsModel.Post" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancDelTempsModel.Report" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancDelTempsModel.User" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
         <AssociationConnector Association="BancDelTempsModel.FK_UserBan" ManuallyRouted="false" />
         <AssociationConnector Association="BancDelTempsModel.FK_CategoryPost" ManuallyRouted="false" />
         <AssociationConnector Association="BancDelTempsModel.FK_PactPost" ManuallyRouted="false" />

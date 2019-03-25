@@ -14,11 +14,27 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             var llistaCategorys = db.Categories.ToList();
             return llistaCategorys;
         }
+        public static List<string> GetCategoriesNames()
+        {
+            var llistaCategorys = db.Categories.ToList();
+            List<string> sortida = new List<string>();
+            foreach (var obj in llistaCategorys)
+            {
+                sortida.Add(obj.name);
+            }
+            return sortida;
+        }
 
         public static Category GetSingleCategory(int id)
         {
 
             var user = db.Categories.SingleOrDefault(x => x.Id_Category == id);
+            return user;
+        }
+        public static int GetIdCategoryPerString(string nom)
+        {
+
+            var user = db.Categories.SingleOrDefault(x => x.name.Equals(nom)).Id_Category;
             return user;
         }
 
