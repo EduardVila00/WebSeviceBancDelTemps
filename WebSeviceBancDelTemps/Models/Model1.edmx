@@ -40,8 +40,8 @@
           <Property Name="description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Posts_Id_Post" Type="int" Nullable="false" />
-          <Property Name="Id_Creador" Type="int" Nullable="false" />
-          <Property Name="Id_NoCreador" Type="int" Nullable="false" />
+          <Property Name="Id_Author" Type="int" Nullable="false" />
+          <Property Name="Id_NoAuthor" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Posts">
           <Key>
@@ -55,7 +55,7 @@
           <Property Name="title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="UserId_User" Type="int" Nullable="false" />
           <Property Name="Category_Id_Category" Type="int" Nullable="false" />
-          <Property Name="actiu" Type="bit" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Reports">
           <Key>
@@ -83,18 +83,6 @@
           <Property Name="gender" Type="nvarchar(max)" Nullable="false" />
           <Property Name="picture_path" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
-        <Association Name="FK_CategoryPost">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
-          <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categories">
-              <PropertyRef Name="Id_Category" />
-            </Principal>
-            <Dependent Role="Posts">
-              <PropertyRef Name="Category_Id_Category" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PactPost">
           <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
           <End Role="Pacts" Type="Self.Pacts" Multiplicity="*" />
@@ -116,6 +104,18 @@
             </Principal>
             <Dependent Role="Reports">
               <PropertyRef Name="Post_Id_Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Posts_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id_Category" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="Category_Id_Category" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -151,10 +151,6 @@
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_CategoryPost" Association="Self.FK_CategoryPost">
-            <End Role="Categories" EntitySet="Categories" />
-            <End Role="Posts" EntitySet="Posts" />
-          </AssociationSet>
           <AssociationSet Name="FK_PactPost" Association="Self.FK_PactPost">
             <End Role="Posts" EntitySet="Posts" />
             <End Role="Pacts" EntitySet="Pacts" />
@@ -162,6 +158,10 @@
           <AssociationSet Name="FK_PostReport" Association="Self.FK_PostReport">
             <End Role="Posts" EntitySet="Posts" />
             <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Posts_Categories" Association="Self.FK_Posts_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Posts" EntitySet="Posts" />
           </AssociationSet>
           <AssociationSet Name="FK_UserBan" Association="Self.FK_UserBan">
             <End Role="Users" EntitySet="Users" />
@@ -202,7 +202,7 @@
           <Property Name="Id_Category" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Posts" Relationship="Self.FK_CategoryPost" FromRole="Categories" ToRole="Posts" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK_Posts_Categories" FromRole="Categories" ToRole="Posts" />
         </EntityType>
         <EntityType Name="Pact">
           <Key>
@@ -214,8 +214,8 @@
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Posts_Id_Post" Type="Int32" Nullable="false" />
-          <Property Name="Id_Creador" Type="Int32" Nullable="false" />
-          <Property Name="Id_NoCreador" Type="Int32" Nullable="false" />
+          <Property Name="Id_Author" Type="Int32" Nullable="false" />
+          <Property Name="Id_NoAuthor" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Post" Relationship="Self.FK_PactPost" FromRole="Pacts" ToRole="Posts" />
         </EntityType>
         <EntityType Name="Post">
@@ -230,8 +230,8 @@
           <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserId_User" Type="Int32" Nullable="false" />
           <Property Name="Category_Id_Category" Type="Int32" Nullable="false" />
-          <Property Name="actiu" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_CategoryPost" FromRole="Posts" ToRole="Categories" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Posts_Categories" FromRole="Posts" ToRole="Categories" />
           <NavigationProperty Name="Pacts" Relationship="Self.FK_PactPost" FromRole="Posts" ToRole="Pacts" />
           <NavigationProperty Name="Reports" Relationship="Self.FK_PostReport" FromRole="Posts" ToRole="Reports" />
           <NavigationProperty Name="User" Relationship="Self.FK_UserPost" FromRole="Posts" ToRole="Users" />
@@ -277,7 +277,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CategoryPost">
+        <Association Name="FK_Posts_Categories">
           <End Role="Categories" Type="Self.Category" Multiplicity="1" />
           <End Role="Posts" Type="Self.Post" Multiplicity="*" />
           <ReferentialConstraint>
@@ -337,7 +337,7 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Bans" EntitySet="Bans" />
           </AssociationSet>
-          <AssociationSet Name="FK_CategoryPost" Association="Self.FK_CategoryPost">
+          <AssociationSet Name="FK_Posts_Categories" Association="Self.FK_Posts_Categories">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Posts" EntitySet="Posts" />
           </AssociationSet>
@@ -397,8 +397,8 @@
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="Posts_Id_Post" ColumnName="Posts_Id_Post" />
-                <ScalarProperty Name="Id_Creador" ColumnName="Id_Creador" />
-                <ScalarProperty Name="Id_NoCreador" ColumnName="Id_NoCreador" />
+                <ScalarProperty Name="Id_Author" ColumnName="Id_Author" />
+                <ScalarProperty Name="Id_NoAuthor" ColumnName="Id_NoAuthor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -413,7 +413,7 @@
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="UserId_User" ColumnName="UserId_User" />
                 <ScalarProperty Name="Category_Id_Category" ColumnName="Category_Id_Category" />
-                <ScalarProperty Name="actiu" ColumnName="actiu" />
+                <ScalarProperty Name="active" ColumnName="active" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

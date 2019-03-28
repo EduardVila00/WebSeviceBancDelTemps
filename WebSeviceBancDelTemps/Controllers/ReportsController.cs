@@ -58,7 +58,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // PUT: api/report
-        [Route("api/report/{id}")]
+        [Route("api/updateReport/{id}")]
         public HttpResponseMessage PutReport(int id, [FromBody]Report report)
         {
             Report reports = ReportsRepository.UpdateReport(id, report);

@@ -48,7 +48,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/post/
-        [Route("api/post/{id}")]
+        [Route("api/postSi/{id}")]
         public HttpResponseMessage GetSinglePost(int id)
         {
             var post = PostsRepository.GetSinglePost(id);

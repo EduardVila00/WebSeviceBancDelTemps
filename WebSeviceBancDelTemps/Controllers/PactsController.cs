@@ -121,7 +121,7 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
-        [Route("api/post")]
+        [Route("api/insertPact")]
         public HttpResponseMessage PactPact([FromBody] Pact post)
         {
             var pacts = PactsRepository.InsertPact(post);
@@ -129,7 +129,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
 
-        [Route("api/post/{id}")]
+        [Route("api/UpdatePact/{id}")]
         public HttpResponseMessage PutPact(int id, [FromBody]Pact post)
         {
             var pacts = PactsRepository.UpdatePact(id, post);
@@ -138,7 +138,7 @@ namespace WebSeviceBancDelTemps.Controllers
         }
 
         // DELETE: api/post/id
-        [Route("api/post/{id?}")]
+        [Route("api/deletePact/{id?}")]
         public HttpResponseMessage Delete(int id)
         {
             PactsRepository.DeletePact(id);

@@ -28,10 +28,10 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
 
-        [Route("api/ban")]
-        public HttpResponseMessage PostUser([FromBody] Ban user)
+        [Route("api/insertBan")]
+        public HttpResponseMessage PostUser([FromBody] Ban ban)
         {
-            var bans = BansRepository.InsertBan(user);
+            var bans = BansRepository.InsertBan(ban);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, bans);
             return response;
         }

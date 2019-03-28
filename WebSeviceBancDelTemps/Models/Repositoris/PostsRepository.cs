@@ -12,44 +12,44 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static List<Post> GetAllPosts()
         {
-            var llistaPosts = db.Posts.Where(x=>x.actiu).ToList();
+            var llistaPosts = db.Posts.Where(x=>x.active).ToList();
             return llistaPosts;
         }
 
         public static List<Post> GetPostsByCategory(int idCategory)
         {
-            var llistaPosts = db.Posts.Where(x => x.Category_Id_Category == idCategory && x.actiu).ToList();
+            var llistaPosts = db.Posts.Where(x => x.Category_Id_Category == idCategory && x.active).ToList();
             return llistaPosts;
         }
 
         public static List<Post> GetPostsByDateCreated(string date)
         {
 
-            var llistaPosts = db.Posts.Where(x => (x.date_created) == date && x.actiu).ToList();
+            var llistaPosts = db.Posts.Where(x => (x.date_created) == date && x.active).ToList();
             return llistaPosts;
         }
 
         public static List<Post> GetPostsByDateFinished(string date)
         {
-            var llistaPosts = db.Posts.Where(x => x.date_finished == date && x.actiu).ToList();
+            var llistaPosts = db.Posts.Where(x => x.date_finished == date && x.active).ToList();
             return llistaPosts;
         }
 
         public static List<Post> GetPostsByLocation(string location)
         {
-            var llistaPosts = db.Posts.Where(x => x.location.Contains(location) && x.actiu).ToList();
+            var llistaPosts = db.Posts.Where(x => x.location.Contains(location) && x.active).ToList();
             return llistaPosts;
         }
 
         public static List<Post> GetPostsByTitle(string title)
         {
-            var llistaPosts = db.Posts.Where(x => x.title.Contains(title) && x.actiu).ToList();
+            var llistaPosts = db.Posts.Where(x => x.title.Contains(title) && x.active).ToList();
             return llistaPosts;
         }
 
         public static List<Post> GetPostsByUser(string filtre)
         {
-            var llistaPosts = db.Posts.Where(x => x.User.name.Contains(filtre) && x.actiu).ToList();
+            var llistaPosts = db.Posts.Where(x => x.User.name.Contains(filtre) && x.active).ToList();
             return llistaPosts;
         }
 
@@ -86,7 +86,7 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
                 u0.description = post.description;
                 u0.location = post.location;
                 u0.title = post.title;
-                u0.actiu = post.actiu;
+                u0.active = post.active;
                 u0.UserId_User = post.UserId_User;
                 u0.Category_Id_Category = post.Category_Id_Category;
                 db.SaveChanges();
@@ -105,7 +105,7 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             //db.Posts.Remove(u);
             //db.SaveChanges();
             var u = db.Posts.SingleOrDefault(x => x.Id_Post == id);
-            u.actiu = false;
+            u.active = false;
             db.SaveChanges();
 
         }
