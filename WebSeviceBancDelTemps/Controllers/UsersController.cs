@@ -53,6 +53,14 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
             return response;
         }
+
+        [Route("api/userLoginPost")]
+        public HttpResponseMessage PostLoginUser([FromBody]User user)
+        {
+            var userSi = UsersRepository.LoginUser(user);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, userSi);
+            return response;
+        }
         
         [Route("api/user/{id}")]
         public HttpResponseMessage PutUser(int id, [FromBody]User user)

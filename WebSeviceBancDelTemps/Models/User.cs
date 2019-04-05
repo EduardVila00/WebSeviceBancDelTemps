@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Newtonsoft.Json;
+
 namespace WebSeviceBancDelTemps.Models
 {
     using System;
@@ -33,8 +35,10 @@ namespace WebSeviceBancDelTemps.Models
         public string picture_path { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Ban> Bans { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Post> Posts { get; set; }
     }
 }

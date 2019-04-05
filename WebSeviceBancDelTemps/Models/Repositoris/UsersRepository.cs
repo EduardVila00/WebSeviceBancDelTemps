@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI.WebControls;
 
 namespace WebSeviceBancDelTemps.Models.Repositoris
 {
@@ -34,6 +35,12 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             return user;
         }
 
+        public static User LoginUser(User user)
+        {
+            User use = db.Users.FirstOrDefault(x => x.password.Equals(user.password));
+            return use ;
+        }
+
         public static User InsertUser(User user)
         {
             try
@@ -46,7 +53,7 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             }
             catch (Exception e)
             {
-               // Console.WriteLine(e.ToString());
+                // Console.WriteLine(e.ToString());
                 return null;
             }
         }

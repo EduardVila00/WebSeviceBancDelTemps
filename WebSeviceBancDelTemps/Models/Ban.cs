@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Newtonsoft.Json;
+
 namespace WebSeviceBancDelTemps.Models
 {
     using System;
@@ -18,7 +20,8 @@ namespace WebSeviceBancDelTemps.Models
         public string ban_date { get; set; }
         public string ban_finish_date { get; set; }
         public int UserId_User { get; set; }
-    
+
+        [JsonIgnore]
         public virtual User User { get; set; }
     }
 }

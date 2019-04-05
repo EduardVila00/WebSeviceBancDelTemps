@@ -18,7 +18,7 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         
-        [Route("api/admin")]
+        [Route("api/insertAdmin")]
         public HttpResponseMessage PostAdmin([FromBody] Admin admin)
         {
             var users = AdminRepository.InsertAdmin(admin);
