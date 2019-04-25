@@ -20,6 +20,14 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }
+        // GET: api/posts
+        [Route("api/postsAnd")]
+        public HttpResponseMessage GetAllPostsAndroid()
+        {
+            var posts = PostsRepository.GetAllPostsAndroid();
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            return response;
+        }
 
         // GET: api/postsCategory/
         [Route("api/postsCategory/{idCategory:int}")]
@@ -71,6 +79,14 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }
+        // GET: api/postsTitle/
+        [Route("api/postsTitleAnd/{title}&{title}")]
+        public HttpResponseMessage GetPostsByTitleAnd(string title)
+        {
+            var posts = PostsRepository.GetPostsByTitleAnd(title);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            return response;
+        }
         // GET: api/postsUser/
         [Route("api/postsUser/{filtre}")]
         public HttpResponseMessage GetPostsByUser(string filtre)
@@ -79,7 +95,7 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }
-        [Route("api/post")]
+        [Route("api/postPost")]
         public HttpResponseMessage PostPost([FromBody] Post post)
         {
             var posts = PostsRepository.InsertPost(post);

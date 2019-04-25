@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Antlr.Runtime.Misc;
+using Microsoft.Ajax.Utilities;
 
 namespace WebSeviceBancDelTemps.Models.Repositoris
 {
@@ -12,7 +14,12 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static List<Post> GetAllPosts()
         {
-            var llistaPosts = db.Posts.Where(x=>x.active).ToList();
+            var llistaPosts = db.Posts.Where(x => x.active).ToList();
+            return llistaPosts;
+        }
+        public static Posts GetAllPostsAndroid()
+        {
+            var llistaPosts = new Posts(db.Posts.Where(x => x.active).ToList());
             return llistaPosts;
         }
 
@@ -44,6 +51,11 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
         public static List<Post> GetPostsByTitle(string title)
         {
             var llistaPosts = db.Posts.Where(x => x.title.Contains(title) && x.active).ToList();
+            return llistaPosts;
+        }
+        public static Posts GetPostsByTitleAnd(string title)
+        {
+            var llistaPosts =new Posts(db.Posts.Where(x => x.title.Contains(title) && x.active).ToList());
             return llistaPosts;
         }
 
