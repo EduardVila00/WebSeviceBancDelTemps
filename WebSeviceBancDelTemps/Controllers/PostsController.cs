@@ -80,13 +80,13 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         // GET: api/postsTitle/
-        [Route("api/postsTitleAnd/{title}&{title}")]
+        [Route("api/postsTitleAnd/{title}")]
         public HttpResponseMessage GetPostsByTitleAnd(string title)
         {
             var posts = PostsRepository.GetPostsByTitleAnd(title);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
-        }
+        }//TODO: Entrar per body
         // GET: api/postsUser/
         [Route("api/postsUser/{filtre}")]
         public HttpResponseMessage GetPostsByUser(string filtre)

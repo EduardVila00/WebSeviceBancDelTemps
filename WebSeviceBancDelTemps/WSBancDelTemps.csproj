@@ -235,6 +235,7 @@
     <Compile Include="Models\Repositoris\AdminRepository.cs" />
     <Compile Include="Models\Repositoris\BansRepository.cs" />
     <Compile Include="Models\Repositoris\CategoriesRepository.cs" />
+    <Compile Include="Models\Repositoris\Pacts.cs" />
     <Compile Include="Models\Repositoris\PactsRepository.cs" />
     <Compile Include="Models\Repositoris\PostsRepository.cs" />
     <Compile Include="Models\Repositoris\ReportsRepository.cs" />

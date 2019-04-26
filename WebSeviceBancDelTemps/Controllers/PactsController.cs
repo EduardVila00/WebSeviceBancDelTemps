@@ -18,6 +18,23 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
+        // GET: api/pacts
+        [Route("api/pactsAnd")]
+        public HttpResponseMessage GetAllPactsAnd()
+        {
+            var pacts = PactsRepository.GetAllPactsAnd();
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
+            return response;
+        }
+        // GET: api/pacts
+        [Route("api/pactsAnd/{id}")]
+        public HttpResponseMessage GetAllPactsIdAnd(int id)
+        {
+            var pacts = PactsRepository.GetPactsIdAnd(id);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
+            return response;
+        }
+
 
 
         //// GET: api/pactsDateCreated/

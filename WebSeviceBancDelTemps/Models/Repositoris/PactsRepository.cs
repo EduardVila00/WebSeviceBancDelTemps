@@ -13,6 +13,17 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             var llista = db.Pacts.ToList();
             return llista;
         }
+        public static Pacts GetAllPactsAnd()
+        {
+            var llista = new Pacts(db.Pacts.ToList());
+            return llista;
+        }
+
+        public static Pacts GetPactsIdAnd(int id)
+        {
+            var llista = new Pacts(db.Pacts.Where(x=>x.Id_Author == id).ToList());
+            return llista;
+        }
 
         public static Pact GetSinglePact(int id)
         {
