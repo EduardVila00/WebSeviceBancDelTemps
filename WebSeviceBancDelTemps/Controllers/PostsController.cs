@@ -95,6 +95,14 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
             return response;
         }
+        // GET: api/postsUserAnd/
+        [Route("api/postsUserAnd/{filtre}")]
+        public HttpResponseMessage GetPostsByUserAndroid(int filtre)
+        {
+            var posts = PostsRepository.GetPostsByUserAndroid(filtre);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            return response;
+        }
         [Route("api/postPost")]
         public HttpResponseMessage PostPost([FromBody] Post post)
         {

@@ -84,6 +84,11 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             return llista;
         }
 
+        public static Pacts GetPactsByUserIdAndroid(int id)
+        {
+            var llista = new Pacts(db.Pacts.Where(x => x.Post.User.Id_User == id).ToList());
+            return llista;
+        }
 
         public static Pact InsertPact(Pact pact)
         {

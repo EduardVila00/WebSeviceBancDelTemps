@@ -138,6 +138,14 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
+        // GET: api/pactsUser/
+        [Route("api/pactsUserAnd/{userId:int}")]
+        public HttpResponseMessage GetPactsByUserAndroid(int userId)
+        {
+            var pacts = PactsRepository.GetPactsByUserIdAndroid(userId);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
+            return response;
+        }
         [Route("api/insertPact")]
         public HttpResponseMessage PactPact([FromBody] Pact post)
         {

@@ -65,6 +65,12 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             return llistaPosts;
         }
 
+        public static Posts GetPostsByUserAndroid(int filtre)
+        {
+            var llistaPosts = new Posts(db.Posts.Where(x => x.User.Id_User.Equals(filtre) && x.active).ToList());
+            return llistaPosts;
+        }
+
         public static Post GetSinglePost(int id)
         {
 
