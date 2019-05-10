@@ -37,11 +37,14 @@ namespace WebSeviceBancDelTemps.Controllers
         }
         // GET: api/category/
         [Route("api/categoryId/{nom}")]
-        public HttpResponseMessage GetIdCategoryPerString(string nom)
+        public IHttpActionResult GetIdCategoryPerString(string nom)
         {
             var category = CategoriesRepository.GetIdCategoryPerString(nom);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, category);
-            return response;
+            return Ok(new
+            {
+                value = category
+            });
         }
 
         // GET: api/usersEmail/

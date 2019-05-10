@@ -73,5 +73,16 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
         }
+        // DELETE: api/report
+        [Route("api/insertReport/")]
+        public IHttpActionResult InsertReport([FromBody]Report report)
+        {
+            ReportsRepository.InsertReport(report);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK);
+            return Ok(new
+            {
+                value = response
+            });
+        }
     }
 }

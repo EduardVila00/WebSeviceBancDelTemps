@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Newtonsoft.Json;
+
 namespace WebSeviceBancDelTemps.Models
 {
     using System;
@@ -20,7 +22,7 @@ namespace WebSeviceBancDelTemps.Models
         public int Post_Id_Post { get; set; }
         public int Id_Reporter { get; set; }
         public int Id_Reported { get; set; }
-    
+        [JsonIgnore]
         public virtual Post Post { get; set; }
     }
 }

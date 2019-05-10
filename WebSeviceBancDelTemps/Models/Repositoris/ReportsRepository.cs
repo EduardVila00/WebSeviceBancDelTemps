@@ -41,6 +41,21 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             var llista = db.Reports.Where(x => x.is_revised == revised).ToList();
             return llista;
         }
+
+        public static int InsertReport(Report report)
+        {
+            try
+            {
+                db.Reports.Add(report);
+                db.SaveChanges();
+                return report.Id_Report;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return 0;
+            }
+        }
         public static Report UpdateReport(int id, Report report)
         {
             try

@@ -104,12 +104,21 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         [Route("api/postPost")]
-        public HttpResponseMessage PostPost([FromBody] Post post)
+        public IHttpActionResult PostPost([FromBody] Post post)
         {
             var posts = PostsRepository.InsertPost(post);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
-            return response;
-        }
+            //HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+            return Ok(new
+            {
+                value = posts
+            });
+        }//[Route("api/postPost")]
+        //public HttpResponseMessage PostPost([FromBody] Post post)
+        //{
+        //    var posts = PostsRepository.InsertPost(post);
+        //    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, posts);
+        //    return response;
+        //}
 
         [Route("api/updatePost/{id}")]
         public HttpResponseMessage Put(int id, [FromBody]Post post)

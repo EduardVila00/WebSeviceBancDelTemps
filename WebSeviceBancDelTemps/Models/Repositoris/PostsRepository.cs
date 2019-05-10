@@ -78,18 +78,18 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             return post;
         }
 
-        public static Post InsertPost(Post post)
+        public static int InsertPost(Post post)
         {
             try
             {
                 db.Posts.Add(post);
                 db.SaveChanges();
-                return GetSinglePost(post.Id_Post);
+                return post.Id_Post;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                return null;
+                return 0;
             }
         }
 
