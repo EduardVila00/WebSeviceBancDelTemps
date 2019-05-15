@@ -37,7 +37,7 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static User LoginUser(User user)
         {
-            User use = db.Users.FirstOrDefault(x => x.password.Equals(user.password));
+            User use = db.Users.FirstOrDefault(x => x.password.Equals(user.password)&& x.email.Equals(user.email));
             return use ;
         }
 
