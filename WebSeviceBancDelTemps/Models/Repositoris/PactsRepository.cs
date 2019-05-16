@@ -86,7 +86,7 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static Pacts GetPactsByUserIdAndroid(int id)
         {
-            var llista = new Pacts(db.Pacts.Where(x => x.Id_Author == id && (x.date_finished ==null)).ToList());
+            var llista = new Pacts(db.Pacts.Where(x => x.Id_Author == id).ToList());
             return llista;
         }
 
