@@ -21,7 +21,7 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static Pacts GetPactsIdAnd(int id)
         {
-            var llista = new Pacts(db.Pacts.Where(x => x.Id_NoAuthor == id && !string.IsNullOrWhiteSpace(x.date_finished)).ToList());
+            var llista = new Pacts(db.Pacts.Where(x => x.Id_NoAuthor == id && (x.date_finished ==null || x.date_finished== "")).ToList());
             return llista;
         }
 
@@ -86,13 +86,13 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static Pacts GetPactsByUserIdAndroid(int id)
         {
-            var llista = new Pacts(db.Pacts.Where(x => x.Id_Author == id && !string.IsNullOrWhiteSpace(x.date_finished)).ToList());
+            var llista = new Pacts(db.Pacts.Where(x => x.Id_Author == id && (x.date_finished ==null || x.date_finished== "")).ToList());
             return llista;
         }
 
         public static Pacts GetPactsByUserNoAuthorAndroid(int id)
         {
-            var llista = new Pacts(db.Pacts.Where(x => x.Id_NoAuthor == id && !string.IsNullOrWhiteSpace(x.date_finished)).ToList());
+            var llista = new Pacts(db.Pacts.Where(x => x.Id_NoAuthor == id && (x.date_finished ==null || x.date_finished== "")).ToList());
             return llista;
         }
 
