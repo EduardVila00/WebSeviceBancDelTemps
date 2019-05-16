@@ -96,11 +96,11 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             return llista;
         }
 
-        public static Pact InsertPact(Pact pact)
+        public static int InsertPact(Pact pact)
         {
             db.Pacts.Add(pact);
             db.SaveChanges();
-            return pact;
+            return pact.Id_Pact;
         }
 
         public static Pact UpdatePact(int id, Pact pact)

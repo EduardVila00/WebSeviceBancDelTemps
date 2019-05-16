@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Newtonsoft.Json;
+
 namespace WebSeviceBancDelTemps.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Pact
     {
         public int Id_Pact { get; set; }
@@ -23,7 +25,7 @@ namespace WebSeviceBancDelTemps.Models
         public int Id_Author { get; set; }
         public int Id_NoAuthor { get; set; }
         public int hours { get; set; }
-    
+        [JsonIgnore]
         public virtual Post Post { get; set; }
     }
 }

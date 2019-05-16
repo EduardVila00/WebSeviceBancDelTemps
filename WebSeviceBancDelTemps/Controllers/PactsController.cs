@@ -147,11 +147,12 @@ namespace WebSeviceBancDelTemps.Controllers
             return response;
         }
         [Route("api/insertPact")]
-        public HttpResponseMessage PactPact([FromBody] Pact post)
+        public IHttpActionResult PactPact([FromBody] Pact post)
         {
             var pacts = PactsRepository.InsertPact(post);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
-            return response;
+            return Ok(new {
+                value = pacts
+            });
         }
 
         [Route("api/UpdatePact/{id}")]
