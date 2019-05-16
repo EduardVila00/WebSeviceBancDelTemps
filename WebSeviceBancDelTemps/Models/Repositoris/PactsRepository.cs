@@ -128,6 +128,7 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             var post = db.Posts.FirstOrDefault(x => x.Id_Post == pc.Posts_Id_Post);
             post.active = false;
             db.SaveChanges();
+            return pc.Id_Pact;
 
         }
         public static void DeletePact(int id)
