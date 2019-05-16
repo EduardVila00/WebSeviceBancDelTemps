@@ -21,7 +21,7 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static Pacts GetPactsIdAnd(int id)
         {
-            var llista = new Pacts(db.Pacts.Where(x => x.Id_NoAuthor == id).ToList());
+            var llista = new Pacts(db.Pacts.Where(x => x.Id_NoAuthor == id && !string.IsNullOrWhiteSpace(x.date_finished)).ToList());
             return llista;
         }
 
@@ -86,13 +86,13 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
 
         public static Pacts GetPactsByUserIdAndroid(int id)
         {
-            var llista = new Pacts(db.Pacts.Where(x => x.Id_Author == id).ToList());
+            var llista = new Pacts(db.Pacts.Where(x => x.Id_Author == id && !string.IsNullOrWhiteSpace(x.date_finished)).ToList());
             return llista;
         }
 
         public static Pacts GetPactsByUserNoAuthorAndroid(int id)
         {
-            var llista = new Pacts(db.Pacts.Where(x => x.Id_NoAuthor == id).ToList());
+            var llista = new Pacts(db.Pacts.Where(x => x.Id_NoAuthor == id && !string.IsNullOrWhiteSpace(x.date_finished)).ToList());
             return llista;
         }
 
@@ -114,10 +114,22 @@ namespace WebSeviceBancDelTemps.Models.Repositoris
             pc.date_created = pact.date_created;
             db.SaveChanges();
             return pc;
-
-
         }
 
+        public static int FinalitzarPacte(int id, string data, int hores)
+        {
+            var pc = db.Pacts.FirstOrDefault(x => x.Id_Pact == id);
+            if (pc == null) return 0;
+            pc.date_finished = data;
+            var author = db.Users.FirstOrDefault(x => x.Id_User == pc.Id_Author);
+            var noAuthor = db.Users.FirstOrDefault(x => x.Id_User == pc.Id_NoAuthor);
+            author.time_hours += hores;
+            noAuthor.time_hours += hores;
+            var post = db.Posts.FirstOrDefault(x => x.Id_Post == pc.Posts_Id_Post);
+            post.active = false;
+            db.SaveChanges();
+
+        }
         public static void DeletePact(int id)
         {
             var pc = db.Pacts.FirstOrDefault(x => x.Id_Pact == id);
