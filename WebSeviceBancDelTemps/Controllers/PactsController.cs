@@ -162,13 +162,11 @@ namespace WebSeviceBancDelTemps.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, pacts);
             return response;
         }
-
-        [Route("api/FinalitzarPact/{id}/{data}/{hores}")]
-        public IHttpActionResult FinalitzarPact(int id, string data, int hores)
+        [Route("api/FinalitzarPact/")]
+        public IHttpActionResult FinalitzarPact([FromBody]Pact pact)
         {
-            var pacts = PactsRepository.FinalitzarPacte(id, data, hores);
-            return Ok(new
-            {
+            var pacts = PactsRepository.FinalitzarPacte(pact.Id_Pact, pact.date_finished, pact.hours);
+            return Ok(new {
                 value = pacts
             });
         }

@@ -132,8 +132,15 @@ namespace WebSeviceBancDelTemps.Controllers
         [Route("api/deletePost/{id?}")]
         public void Delete(int id)
         {
-            PostsRepository.DeletePost(id);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK);
+            try
+            {
+                PostsRepository.DeletePost(id);
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }
