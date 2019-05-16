@@ -47,6 +47,15 @@ namespace WebSeviceBancDelTemps.Controllers
             });
         }
 
+        // GET: api/category/
+        [Route("api/categoryIdWindows/{nom}")]
+        public HttpResponseMessage GetIdCategoryPerStringWindows(string nom)
+        {
+            var category = CategoriesRepository.GetIdCategoryPerString(nom);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, category);
+            return response;
+        }
+
         // GET: api/usersEmail/
         [Route("api/categories/{filtre}")]
         public HttpResponseMessage GetFiltreCategories(string filtre)
